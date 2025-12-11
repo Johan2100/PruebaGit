@@ -53,7 +53,8 @@ public class Main {
                     System.out.println("Máxima "+caf.getCapacidadMaxima());
                 }
                 case 0 ->{
-                    System.exit(00);
+                    System.exit(00); //Tienes Error
+
                 }
             }
 
