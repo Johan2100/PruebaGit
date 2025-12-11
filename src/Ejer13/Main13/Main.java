@@ -26,6 +26,7 @@ public class Main {
             3. Servir taza
             4. Agregar café
             5. Estado Máquina 
+            6. Prueba Git Hub
             0. Apagar
             """);
             op = sc.nextInt();
