@@ -42,6 +42,13 @@ public class Main {
 
 
                 }
+
+                case 2->{
+                    for (Cliente c : clientes)
+                        System.out.println(c);
+
+                }
+
             }
 
         }while(op != 0);
