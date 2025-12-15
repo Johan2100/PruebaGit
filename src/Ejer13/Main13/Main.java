@@ -33,7 +33,7 @@ public class Main {
             System.out.println();
             switch (op){
                 case 1 ->{
-                    caf.llebarCafetera();
+                    caf.llenarCafetera();
                 }
                 case 2 ->{
                     caf.vaciarCafetera();

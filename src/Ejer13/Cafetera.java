@@ -28,12 +28,12 @@ public class Cafetera {
         this.capacidadMaxima = capacidadMaxima;
     }
 
-    public void llebarCafetera() {
+    public void llenarCafetera() {
         capacidadActual = capacidadMaxima;
     }
 
     public String servirTaza(double capTaza) {
-        String result;
+        String result="";
         if (capacidadActual < capTaza)
             result = "Solo te voy a servir " + capacidadActual;
         else
