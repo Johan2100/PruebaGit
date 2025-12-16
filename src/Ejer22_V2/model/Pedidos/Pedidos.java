@@ -1,13 +1,13 @@
-package Ejer22.model.Pedidos;
+package Ejer22_V2.model.Pedidos;
 
 public class Pedidos {
     private String descripcion;
     private int codigo;
     private double precio;
 
-    public Pedidos(String despedido,double precio, int codigo) {
+    public Pedidos(String descripcion,double precio, int codigo) {
         this.codigo = codigo;
-        this.descripcion = despedido;
+        this.descripcion = descripcion;
         this.precio = precio;
     }
 
