@@ -37,20 +37,20 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public void newAsignatura( Asignatura Asig){
-        if (asignaturas == null){
-            asignaturas = new Asignatura[1];
-            asignaturas [0] = Asig;
-        }else {
-            Pedidos[] aux = new Pedidos[asignaturas.length+1];
-
-            for (int i = 0; i < asignaturas.length; i++) {
-                aux[i] = asignaturas[i];
-            }
-            aux[aux.length - 1]= Asig ;
-            asignaturas = aux;
-
-        }
-    }
+//    public void newAsignatura( Asignatura Asig){
+//        if (asignaturas == null){
+//            asignaturas = new Asignatura[1];
+//            asignaturas [0] = Asig;
+//        }else {
+//            Pedidos[] aux = new Pedidos[asignaturas.length+1];
+//
+//            for (int i = 0; i < asignaturas.length; i++) {
+//                aux[i] = asignaturas[i];
+//            }
+//            aux[aux.length - 1]= Asig ;
+//            asignaturas = aux;
+//
+//        }
+//    }
 
 }
