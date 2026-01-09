@@ -88,6 +88,34 @@ public class Cliente {
 
     }
 
+    public double gastoTotal(){
+        if (pedidos == null){
+            return 0;  // Metodo termina devolviendo 0
+        }
+
+        for (Pedidos n :pedidos){ // Es similar a pedidos[n].getPrecio();
+            precioT+=n.getPrecio();
+        }
+        precioT+= precioT*Pedidos.IVA/100;
+
+        return precioT;
+
+    }
+
+    public Pedidos localizaPedido(int cod){
+        Pedidos result = null;
+        if(pedidos != null){
+            for(Pedidos p : pedidos ){
+                if(p.getCodigo() == cod){
+                    result = p;
+                }
+            }
+
+        }
+        return result;
+    }
+
+
 
 
 

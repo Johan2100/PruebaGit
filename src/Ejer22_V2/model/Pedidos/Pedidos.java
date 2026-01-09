@@ -5,6 +5,9 @@ public class Pedidos {
     private int codigo;
     private double precio;
 
+    public static double IVA; //No hacemos ni get ni set, y no hace falta constructor
+    // Ya que todos los objetos pueden acceder a ella.
+
     public Pedidos(String descripcion,double precio, int codigo) {
         this.codigo = codigo;
         this.descripcion = descripcion;
@@ -45,5 +48,14 @@ public class Pedidos {
     public void rebajaprecio(double descuento){
         double result;
 
+    }
+
+    //Metodo que modifique el IVA
+    //STATIC DE LA CLASE: Metodo static
+    //Para poder llamar el metodo, tenemos que poner Static.
+
+    public static void modificaIVA(double iva){
+        IVA = iva;
+        System.out.println("Aplicando cambios....");
     }
 }

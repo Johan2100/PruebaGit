@@ -9,6 +9,9 @@ public class Main {
     static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int stePosLibre = 0,codPed=0;
+        System.out.print("Introduzca IVA: ");
+        Pedidos.IVA = sc.nextDouble();
+
 
         Cliente[] clientes = new Cliente[100];
         int op;
@@ -16,14 +19,16 @@ public class Main {
             System.out.println("""
                     *** MENU EMPRESA DE ENVIOS *** 
                     
+                    
                     1. Registrar Cliente 
                     2. Lista de Clientes
                     3. Agregar Pedido
                     4. Generar factura 
                     5. Cliente con más pedidos
                     6. Cliente más caro
-                    7. Localizar pedido con código
-                    
+                    7. Localizar pedido con código       
+                    8.
+                    9. Cambiar IVA         
                     0. Salir
                                    
                     """);
@@ -114,23 +119,80 @@ public class Main {
                     Cliente clienteMax = clientes[0]; // Objeto cliente 'max'.
                     for (int i = 1; i <stePosLibre ; i++) {
                         //cliente[i] > max, actualizamos clientes[i]
-                        if(clientes[i].getPedidos().length > clienteMax.getPedidos().length){
+                        if(clientes[i].getPedidos() == null && clientes[i].getPedidos().length > clienteMax.getPedidos().length){
                             clienteMax =  clientes[i];
                         }
                     }
-                    int max = 0;
-                    Cliente c = null;
-                    int pos = 0;
+                    System.out.println("El cliente con más pedidos es "+clienteMax);
+//                    int max = 0;
+//                    Cliente c = null;
+//                    int pos = 0;
+//
+//                    for (int i = 0; i < stePosLibre; i++) {
+//                        if(clientes[i].getPedidos().length > max){
+//                            max = clientes[i].getPedidos().length;
+//                            c = clientes[i];
+//                            pos = i;
+//
+//                        }
+//
+//                    }
+                }
 
-                    for (int i = 0; i < stePosLibre; i++) {
-                        if(clientes[i].getPedidos().length > max){
-                            max = clientes[i].getPedidos().length;
-                            c = clientes[i];
+                case 6->{
+                    Cliente clienteMax = clientes[0]; // Objeto cliente 'max'.
+                    for (int i = 1; i <stePosLibre ; i++) {
+                        //cliente[i] > max, actualizamos clientes[i]
+                        if(clientes[i].gastoTotal() > clienteMax.gastoTotal()){
+                            clienteMax =  clientes[i];
+                        }
+                    }
+                    System.out.println("El cliente que más a gastado es "+clienteMax);
+                }
 
+                case 7 ->{
+                    System.out.print("Introduzca el cod de paquete: ");
+                    int codF = sc.nextInt();
+                    System.out.println();
+                    boolean encontrado = false;
+
+                    Cliente comprador = clientes[0];
+
+
+
+//                   INTENTO EN CLASE
+//                    for (int i = 0; i < stePosLibre && !encontrado; i++) {
+//
+//                        if (comprador.getPedidos()[i].getCodigo() == codF){
+//                            encontrado = true;
+//                            comprador = clientes [i];
+//                            System.out.println("El cliente que ha efectuado la compra es "+comprador.getNombre()+
+//                                    " y "+comprador.getPedidos()[i]);
+//                        }
+//                    }
+
+                    //FORMA CLASE
+
+                    for (int i = 0; i < stePosLibre && !encontrado; i++) {
+                        Pedidos p = clientes[i].localizaPedido(codF);
+                        if (p!=null){
+                            encontrado = true;
+                            System.out.println("Cliente: "+clientes[i]);
                         }
 
                     }
+
+
                 }
+
+                case 9 ->{
+                    System.out.print("Nuevo valor IVA: ");
+                    double iva = sc.nextDouble();
+                    Pedidos.modificaIVA(iva);
+                    System.out.println("Se ha cambiado correctamente el iva a "+Pedidos.IVA);
+
+                }
+
 
 
             }
